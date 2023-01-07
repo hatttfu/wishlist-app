@@ -1,0 +1,23 @@
+.header {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: var(--main-accent-color);
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__nav-list {
+  list-style: none;
+}
+
+.header__nav-item {
+  display: inline;
+}
+
+.header__nav-item:not(:last-child) {
+  margin-right: 25px;
+}

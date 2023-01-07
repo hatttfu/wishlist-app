@@ -1,0 +1,65 @@
+@import "./normalize.css";
+
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Nunito"),
+  url("../fonts/Nunito-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Nunito"),
+  url("../fonts/Nunito-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Nunito"),
+  url("../fonts/Nunito-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Nunito"),
+  url("../fonts/Nunito-Bold.ttf") format("truetype");
+}
+
+body {
+  --main-bg-color: #FFFFFF;
+  --main-accent-color: #F3D8C7;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+  font-family: Nunito, sans-serif;
+}
+
+div, ul, li, header, footer, nav, main {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  box-sizing: border-box;
+  max-width: 1034px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+ul {
+  list-style: none;
+}
+
+main {
+  padding: 20px 0;
+}
