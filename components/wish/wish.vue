@@ -13,6 +13,7 @@ import {getWishes} from "~/server/wishes/get-wishes";
 
 export default defineComponent({
   layout: 'custom',
+
   setup() {
 
     const props = defineProps(['wish']);
