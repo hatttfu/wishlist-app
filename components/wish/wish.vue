@@ -21,6 +21,7 @@ export default defineComponent({
     const isLoading = ref<Boolean>(false);
 
     return { wish };
+
   },
 })
 </script>
