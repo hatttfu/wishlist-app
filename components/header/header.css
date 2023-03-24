@@ -16,6 +16,7 @@
 
 .header__nav-item {
   display: inline;
+  cursor: pointer;
 }
 
 .header__nav-item:not(:last-child) {
