@@ -14,11 +14,10 @@ export namespace AuthFormNS {
     name: {
       value: string,
       props: {
-        label: string,
+        placeholder: string,
         required: boolean,
         disabled: boolean,
         type: string,
-        placeholder: string,
       },
       methods: {
         input: (value: string) => void,
@@ -27,11 +26,10 @@ export namespace AuthFormNS {
     email: {
       value: string,
       props: {
-        label: string,
+        placeholder: string,
         required: boolean,
         disabled: boolean,
         type: string,
-        placeholder: string,
       },
       methods: {
         input: (value: string) => void,
@@ -40,7 +38,7 @@ export namespace AuthFormNS {
     password: {
       value: string,
       props: {
-        label: string,
+        placeholder: string,
         required: boolean,
         disabled: boolean
       },
@@ -54,11 +52,10 @@ export namespace AuthFormNS {
     email: {
       value: string,
       props: {
-        label: string,
+        placeholder: string,
         required: boolean,
         disabled: boolean,
         type: string,
-        placeholder: string
       },
       methods: {
         input: (value: string) => void;
@@ -67,7 +64,7 @@ export namespace AuthFormNS {
     password: {
       value: string,
       props: {
-        label: string,
+        placeholder: string,
         required: boolean,
         disabled: boolean
       },

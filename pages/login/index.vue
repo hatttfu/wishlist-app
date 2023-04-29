@@ -6,44 +6,50 @@
         <p class="login__description-text">что хочет твой друг на день рождение</p>
       </div>
     </div>
-    <div class="login__form">
-      <div class="login__form-container">
-        <h1 class="login__form-title">{{ enterInfo.title }}</h1>
-        <h4 @click="changeEnterType" class="login__form-subtitle"> {{ enterInfo.subtitle }}
-          <span class="login__form-switcher"> {{ enterInfo.switcherText }} </span>
-        </h4>
-        <div class="login__form-fields">
-          <div class="login__form-field" v-for="(field, key) in currentFields"
-               :key="key"
-          >
-            <label class="login__form-label"> {{ field.props.label }}</label>
-            <input
-              v-model="field.value"
-              v-bind="field.props"
-              v-on="field.methods"
-              class="input login__form-input"
-            />
+    <div v-if="isLoading" class="loader"></div>
+    <Transition>
+      <div :key="enterInfo" class="login__form">
+          <div class="login__form-container">
+            <h1 class="login__form-title">{{ enterInfo.title }}</h1>
+            <h4 @click="changeEnterType" class="login__form-subtitle"> {{ enterInfo.subtitle }}
+              <span class="login__form-switcher"> {{ enterInfo.switcherText }} </span>
+            </h4>
+            <div class="login__form-fields">
+              <div class="login__form-field" v-for="(field, key) in currentFields"
+                   :key="key"
+              >
+                <input
+                  v-model="field.value"
+                  v-bind="field.props"
+                  v-on="field.methods"
+                  class="input login__form-input"
+                />
+                <label class="login__form-label"> {{ field.props.placeholder }}</label>
+              </div>
+            </div>
+            <button @click="goNext" class="button button-primary login__form-button">Войти</button>
           </div>
-        </div>
-        <button @click="goNext" class="button button-primary login__form-button">Войти</button>
       </div>
-    </div>
+    </Transition>
+
   </div>
 </template>
 
 <script lang="ts">
 import {ref, computed} from "vue";
 import {definePageMeta} from "#imports";
-import type { Ref } from 'vue'
-import {AuthFormNS} from "~/pages/login/types";
-import Infrastructure from "@/server/index";
+import type { Ref } from 'vue';
+import {AuthFormNS} from "~/types/login";
 
 export default {
   setup() {
+    const rerender: Ref<boolean> = ref(false);
     const enum ENTER_TYPES {
       LOGIN,
       REGISTER
     }
+
+    const isLoading: Ref<boolean> = ref(false);
 
     const ENTER_TITLES: AuthFormNS.IEnterInfo[] = [
       {
@@ -64,7 +70,9 @@ export default {
 
     const enterType = ref(ENTER_TYPES.LOGIN);
 
-    const enterInfo = computed<AuthFormNS.IEnterInfo>(() => ENTER_TITLES[enterType.value]);
+    const enterInfo = computed<AuthFormNS.IEnterInfo>(() => {
+      return ENTER_TITLES[enterType.value];
+    });
 
     function changeEnterType() {
       enterType.value = enterType.value === ENTER_TYPES.LOGIN ? ENTER_TYPES.REGISTER : ENTER_TYPES.LOGIN;
@@ -75,13 +83,10 @@ export default {
         name: {
           value: "",
           props: {
-            label: "Никнейм",
             required: true,
             disabled: false,
             type: "text",
-            get placeholder() {
-              return enterType.value === ENTER_TYPES.LOGIN ? "Введите свой ник" : "Придумайте ник"
-            }
+            placeholder: "Никнейм"
           },
           methods: {
             input(value: string) {
@@ -92,11 +97,10 @@ export default {
         email: {
           value: "",
           props: {
-            label: "Email",
             required: true,
             disabled: false,
             type: "email",
-            placeholder: "email"
+            placeholder: "Email"
           },
           methods: {
             input(value: string) {
@@ -107,9 +111,9 @@ export default {
         password: {
           value: "",
           props: {
-            label: "Пароль",
             required: true,
-            disabled: false
+            disabled: false,
+            placeholder: "Пароль"
           },
           methods: {
             input(value: string) {
@@ -122,11 +126,10 @@ export default {
         email: {
           value: "",
           props: {
-            label: "Email",
             required: true,
             disabled: false,
             type: "email",
-            placeholder: "email"
+            placeholder: "Email"
           },
           methods: {
             input(value: string) {
@@ -137,9 +140,9 @@ export default {
         password: {
           value: "",
           props: {
-            label: "Пароль",
             required: true,
-            disabled: false
+            disabled: false,
+            placeholder: "Пароль"
           },
           methods: {
             input(value: string) {
@@ -157,7 +160,8 @@ export default {
 
     function goNext() {
       if (validateForm()) {
-        Infrastructure.auth.register(currentFields.value.)
+        isLoading.value = true;
+        // Infrastructure.auth.register(currentFields.value.)
       }
     }
 
@@ -165,7 +169,7 @@ export default {
       return true;
     }
 
-    return { changeEnterType, FORM_FIELDS, enterInfo, currentFields};
+    return { changeEnterType, FORM_FIELDS, enterInfo, currentFields, goNext, isLoading};
   }
 }
 </script>

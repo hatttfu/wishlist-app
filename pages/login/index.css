@@ -37,6 +37,10 @@
   border-radius: 5px;
 }
 
+.login__form-input::placeholder {
+  opacity: 0;
+}
+
 .login__form-label {
   color: #828282;
   font-weight: 600;
@@ -44,10 +48,24 @@
   line-height: 19px;
 }
 
-.login__form-input::placeholder {
+.login__form-input:not(:placeholder-shown) + .login__form-label {
+  position: absolute;
+  top: 0;
+  opacity: 1;
+  transition-property: opacity, top;
+  transition-duration: .1s;
+  transition-timing-function: ease-in-out;
+}
+
+.login__form-input:placeholder-shown + .login__form-label {
+  top: 35px;
+  left: 13px;
+  opacity: .8;
+  position: absolute;
   color: var(--placeholder-color);
   font-size: 14px;
   line-height: 19px;
+  pointer-events: none;
 }
 
 .login__form-field:not(:last-child) {
@@ -57,6 +75,8 @@
 .login__form-field {
   display: flex;
   flex-direction: column;
+  position: relative;
+  padding-top: 20px;
 }
 
 .login__form-title {
@@ -106,4 +126,12 @@
   line-height: 34px;
 }
 
+.v-enter-active,
+.v-leave-active {
+  transition: opacity .3s ease-in-out;
 
+}
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
