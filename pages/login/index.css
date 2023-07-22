@@ -1,0 +1,137 @@
+.login__container {
+  width: 100vw;
+  height: 100vh;
+  max-height: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.login__description {
+  background-color: var(--second-bg-color);
+  flex: 0 0 60%;
+  height: 100%;
+  background-image: url("./assets/images/bg-auth.png");
+  background-position: center;
+  position: relative;
+}
+
+.login__form {
+  display: flex;
+  justify-content: center;
+  flex: 0 0 40%;
+}
+
+.login__form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 8px;
+  height: 505px;
+  width: 420px;
+}
+
+.login__form-input {
+  border: 1px solid var(--slight-border-color);
+  border-radius: 5px;
+}
+
+.login__form-input::placeholder {
+  opacity: 0;
+}
+
+.login__form-label {
+  color: #828282;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.login__form-input:not(:placeholder-shown) + .login__form-label {
+  position: absolute;
+  top: 0;
+  opacity: 1;
+  transition-property: opacity, top;
+  transition-duration: .1s;
+  transition-timing-function: ease-in-out;
+}
+
+.login__form-input:placeholder-shown + .login__form-label {
+  top: 35px;
+  left: 13px;
+  opacity: .8;
+  position: absolute;
+  color: var(--placeholder-color);
+  font-size: 14px;
+  line-height: 19px;
+  pointer-events: none;
+}
+
+.login__form-field:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.login__form-field {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 20px;
+}
+
+.login__form-title {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 49px;
+  color: var(--main-text-color);
+  text-align: center;
+}
+
+.login__form-subtitle {
+  margin-bottom: 25px;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.login__form-switcher {
+  color: var(--pink-accent-color);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login__form-button {
+  margin-top: 32px;
+}
+
+.login__description-content {
+  position: absolute;
+  bottom: 90px;
+  color: var(--pink-accent-color);
+  width: 100%;
+  text-align: center;
+}
+
+.login__description-title {
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 55px;
+}
+
+.login__description-text {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 34px;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity .3s ease-in-out;
+
+}
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}

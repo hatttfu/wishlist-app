@@ -1,0 +1,30 @@
+/*.wishes__container {*/
+/*  padding-top: 20px;*/
+/*  padding-bottom: 20px;*/
+/*}*/
+
+/*.wishes__list {*/
+/*  display: flex;*/
+/*  flex-wrap: wrap;*/
+/*  margin-left: -15px;*/
+/*  margin-right: -15px;*/
+/*  margin-top: -15px;*/
+/*}*/
+
+/*.wishes__list-item {*/
+/*  flex: 0 0 25%;*/
+/*  max-width: 25%;*/
+/*  margin-top: 30px;*/
+/*  padding: 0 15px;*/
+/*  text-align: center;*/
+/*}*/
+
+/*!*todo:*!*/
+/*!*.wishes__wish-content {*!*/
+/*!*  border: 1px solid #cccccc;*!*/
+/*!*  height: 100%;*!*/
+
+/*!*  !*padding: 10px;*!*!*/
+/*!*  cursor: pointer;*!*/
+/*!*}*!*/
+

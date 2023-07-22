@@ -1,0 +1,168 @@
+@import "./normalize.css";
+
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Nunito"),
+  url("/fonts/Nunito-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Nunito"),
+  url("/fonts/Nunito-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Nunito"),
+  url("/fonts/Nunito-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Nunito"),
+  url("/fonts/Nunito-Bold.ttf") format("truetype");
+}
+
+body {
+  --main-bg-color: #FFFFFF;
+  --main-accent-color: #F3D8C7;
+  --second-accent-color: #EFE5DC;
+  --third-accent-color: #FBFEFB;
+  --gray-border-color: #CCCCCC;
+  --main-text-color: #525252;
+  --slight-border-color: #DED2D9;
+  --pink-accent-color: #7F265B;
+  --pink-accent-dark: #6B264F;
+  --placeholder-color: #E0E0E0;
+  --white-text: #FFFFFF;
+  --second-bg-color: #FFE6C9;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: Nunito, sans-serif;
+  color: var(--main-text-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+div, ul, li, header, footer, nav, main, p, input, button, a, h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  box-sizing: border-box;
+  max-width: 1034px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+ul {
+  list-style: none;
+}
+
+main {
+  padding: 20px 0;
+}
+
+input:focus, input:active, button:focus, button:active {
+  outline: none;
+}
+
+.input, .button {
+  border-radius: 5px;
+  padding: 13px;
+}
+
+.input {
+  border: 1px solid var(--third-accent-color);
+}
+
+.input:hover, .input:focus, .input:active {
+  border: 1px solid var(--main-accent-color);
+}
+
+.button {
+  cursor: pointer;
+  border: 1px solid var(--main-accent-color);
+}
+
+.button-secondary {
+  background-color: #FFFFFF;
+}
+
+.button-primary {
+  /*background-color: var(--second-accent-color);*/
+  /*color: var(--main-text-color);*/
+  /*border: 1px solid var(--second-accent-color);*/
+  border-radius: 6px;
+  color: var(--white-text);
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 25px;
+  background-color: var(--pink-accent-color);
+  border: 1px solid var(--pink-accent-color);
+}
+
+.button-primary:focus, .button-primary:active, .button-primary:hover {
+  background-color: var(--pink-accent-dark);
+  border: 1px solid var(--pink-accent-dark);
+}
+
+.paragraph:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.button-back {
+  margin: 25px 0;
+  border: none;
+  background-color: #FFFFFF;
+  padding: 0;
+}
+
+.loader {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF84MDZfMjIpIj4KPHBhdGggZD0iTTcxLjY3MjggMzUuNTg2NkM3NS4xNTYzIDMyLjkyNTcgNzcuNDA5OSAyOC43MzE5IDc3LjQwOTkgMjQuMDE5N0M3Ny40MDk5IDE1Ljk5NjYgNzAuODgyNyA5LjQ2OTQ4IDYyLjg1OTcgOS40Njk0OEM1Ny4xMzU5IDkuNDY5NDggNTIuMTc1MyAxMi43OTMxIDQ5LjgwMTMgMTcuNjEwN0M0Ny40MjczIDEyLjc5MzEgNDIuNDY2OCA5LjQ2OTQ4IDM2Ljc0MjkgOS40Njk0OEMyOC43MTk5IDkuNDY5NDggMjIuMTkyOCAxNS45OTY2IDIyLjE5MjggMjQuMDE5N0MyMi4xOTI4IDI4LjczMTggMjQuNDQ2MSAzMi45MjU3IDI3LjkyOTkgMzUuNTg2NkgxMC4yMTU1VjUxLjU2NTdIMTIuNjQxMlYxMDBINDEuODExOUg0NC43OTUxSDU0LjgwNzRINTcuNzkwNkg4Ni45NjEyVjUxLjU2NTVIODkuMzg3VjM1LjU4NjRINzEuNjcyOFYzNS41ODY2Wk00MS44MTE5IDk3LjAxNjZIMTUuNjI0NFY1MS41NjU1SDQxLjgxMTdMNDEuODExOSA5Ny4wMTY2Wk00MS44MTE5IDQ4LjU4MjFIMTMuMTk4N1YzOC41Njk2SDM2Ljc0MjdINDEuODExN0w0MS44MTE5IDQ4LjU4MjFaTTQxLjgxMTkgMzUuNTg2NkgzNi43NDI5QzMwLjM2NDggMzUuNTg2NiAyNS4xNzYgMzAuMzk3OCAyNS4xNzYgMjQuMDE5N0MyNS4xNzYgMTcuNjQxNSAzMC4zNjQ4IDEyLjQ1MjcgMzYuNzQyOSAxMi40NTI3QzQzLjEyMDkgMTIuNDUyNyA0OC4zMDk3IDE3LjY0MTUgNDguMzA5NyAyNC4wMTk3VjM1LjU4NjZINDQuNzk1M0g0MS44MTE5Wk01NC44MDc0IDQ4LjU4MjFWNTEuNTY1M1Y5Ny4wMTY0SDQ0Ljc5NTFWNTEuNTY1M1Y0OC41ODIxVjM4LjU2OTZINDguMzA5NUg1MS4yOTI3SDU0LjgwNzJWNDguNTgyMUg1NC44MDc0Wk01NC44MDc0IDM1LjU4NjZINTEuMjkyOVYyNC4wMTk3QzUxLjI5MjkgMTcuNjQxNSA1Ni40ODE4IDEyLjQ1MjcgNjIuODU5NyAxMi40NTI3QzY5LjIzNzggMTIuNDUyNyA3NC40MjY3IDE3LjY0MTUgNzQuNDI2NyAyNC4wMTk3Qzc0LjQyNjcgMzAuMzk3OCA2OS4yMzc4IDM1LjU4NjYgNjIuODU5NyAzNS41ODY2SDU3Ljc5MDhINTQuODA3NFpNODMuOTc4IDk3LjAxNjZINTcuNzkwOFY1MS41NjU1SDgzLjk3OFY5Ny4wMTY2Wk04Ni40MDM4IDQ4LjU4MjNINTcuNzkwNlYzOC41Njk4SDYyLjg1OTVIODYuNDAzNlY0OC41ODIzSDg2LjQwMzhaIiBmaWxsPSJibGFjayIvPgo8cGF0aCBkPSJNODIuMTY1MyA4My44NDE4SDc5LjE4MjFWODcuMTQ5Nkg4Mi4xNjUzVjgzLjg0MThaIiBmaWxsPSJibGFjayIvPgo8cGF0aCBkPSJNNzkuMTgxMyA4OS4xNTk0VjkyLjc4MDFINzMuNTMwNVY5NS43NjMzSDgyLjE2NDVWODkuMTU5NEg3OS4xODEzWiIgZmlsbD0iYmxhY2siLz4KPHBhdGggZD0iTTIwLjMxODIgNjEuMTUxMUgxNy4zMzVWNzUuMTM0N0gyMC4zMTgyVjYxLjE1MTFaIiBmaWxsPSJibGFjayIvPgo8cGF0aCBkPSJNMjAuMzE4MiA1NC4yNjU2SDE3LjMzNVY1OS4xNjc4SDIwLjMxODJWNTQuMjY1NloiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik04OS41ODI4IDE5LjY4NDZMODguMTAxOCAyMS4xNjU3TDg2LjYwNTcgMTkuNjY5Mkw4NC40OTYxIDIxLjc3ODhMODguMTAxOCAyNS4zODQ4TDkxLjY5MiAyMS43OTQyTDg5LjU4MjggMTkuNjg0NloiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik0xMy4zOTQzIDExLjg2MjRMMTEuOTEzNiAxMy4zNDMzTDEwLjQxNzIgMTEuODQ3Mkw4LjMwNzk4IDEzLjk1NjVMMTEuOTEzNiAxNy41NjIyTDE1LjUwMzkgMTMuOTcxOEwxMy4zOTQzIDExLjg2MjRaIiBmaWxsPSJibGFjayIvPgo8cGF0aCBkPSJNNDcuMzM1NCAwLjAxNTQyOTdMNDUuODU0NCAxLjQ5NjI5TDQ0LjM1ODEgMEw0Mi4yNDg1IDIuMTA5MzdMNDUuODU0NCA1LjcxNTQyTDQ5LjQ0NDggMi4xMjQ4TDQ3LjMzNTQgMC4wMTU0Mjk3WiIgZmlsbD0iYmxhY2siLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF84MDZfMjIiPgo8cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K");
+  animation-duration: 3s;
+  animation-name: loader;
+  animation-iteration-count: infinite;
+  top: 43%;
+  left: 45%;
+  position: fixed;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+}
+
+@keyframes loader {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+

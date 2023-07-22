@@ -1,26 +1,29 @@
 <template>
   <div class="wish">
-      <div class="homepage__wish"></div>
-      <img class="homepage__wish-image" v-if="wish.pictures && wish.pictures.length" src="/images/item.png" :alt="wish.title">
+      <div class="wish__image-wrapper">
+        <img class="wish__image" v-if="wish.pictures && wish.pictures.length" src="/images/item.png" :alt="wish.title">
+        <img v-else src="../../assets/images/wish-placeholder.png" alt="Картинка отсутствует">
+      </div>
+      <p class="wish__title">{{wish.title}}</p>
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
-import {useFetch} from "#app";
 import {IWish} from "~/interface";
-import {getWishes} from "~/server/wishes/get-wishes";
+import {PropType} from "@vue/runtime-core";
+import {defineComponent} from "@vue/runtime-core";
 
 export default defineComponent({
-  layout: 'custom',
-  setup() {
-
-    const props = defineProps(['wish']);
-
-    const isLoading = ref<Boolean>(false);
-
-    return { wish };
+  props: {
+    wish: {
+      type: Object as PropType<IWish>,
+      required: true
+    }
   },
-})
+  setup(props) {
+    return { props }
+  }
+});
+
 </script>
 <style src="./wish.css"></style>
