@@ -37,9 +37,10 @@
 
 <script lang="ts">
 import {ref, computed} from "vue";
-import {definePageMeta} from "#imports";
+import {definePageMeta, useAsyncData} from "#imports";
 import type { Ref } from 'vue';
 import {AuthFormNS} from "~/types/login";
+import axios from "axios";
 
 export default {
   setup() {
@@ -90,7 +91,6 @@ export default {
           },
           methods: {
             input(value: string) {
-              console.log(value)
             }
           }
         },
@@ -104,7 +104,6 @@ export default {
           },
           methods: {
             input(value: string) {
-              console.log(value)
             }
           }
         },
@@ -117,7 +116,6 @@ export default {
           },
           methods: {
             input(value: string) {
-              console.log(value)
             }
           }
         }
@@ -133,7 +131,6 @@ export default {
           },
           methods: {
             input(value: string) {
-              console.log(value)
             }
           }
         },
@@ -146,7 +143,6 @@ export default {
           },
           methods: {
             input(value: string) {
-              console.log(value)
             }
           }
         }
@@ -158,10 +154,27 @@ export default {
          FORM_FIELDS.value.login : FORM_FIELDS.value.register
     );
 
-    function goNext() {
+    async function goNext() {
       if (validateForm()) {
         isLoading.value = true;
-        // Infrastructure.auth.register(currentFields.value.)
+        console.log({
+          email: currentFields.value.email.value,
+          password: currentFields.value.password.value,
+        })
+        axios.post('http://localhost:8000/auth',
+            JSON.stringify({
+              email: currentFields.value.email.value,
+              password: currentFields.value.password.value,
+            }), {
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*'
+            }
+          }
+        )
+        .then((res) => {
+          console.log('RESPONSE FROM SERVER', res);
+        })
       }
     }
 

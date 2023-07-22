@@ -11,21 +11,14 @@
  </div>
 </template>
 
-<script lang="ts">
-  import { defineComponent, ref } from 'vue'
-  import Wish from "~/components/wish/wish.vue";
 
-  export default defineComponent({
-    components: {Wish},
-    layout: 'custom',
-    async setup() {
+<script setup>
+  import '~/assets/css/homepage.css'
+  import { definePageMeta } from '#imports';
+  // import { ref } from 'vue';
 
-    const isLoading = ref<Boolean>(false);
-
-    return { isLoading };
-  },
-})
-
+  definePageMeta({
+    layout: 'custom'
+  })
+  // const isLoading = ref<Boolean>(false);
 </script>
-
-<style src="./index.css" />

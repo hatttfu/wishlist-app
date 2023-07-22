@@ -20,7 +20,6 @@ import axios from 'axios';
 
 export default defineComponent({
   components: {Wish},
-  layout: 'custom',
 
   async setup() {
     let wishes = {};
@@ -29,7 +28,7 @@ export default defineComponent({
         "http://127.0.0.1:8000/api/register/",
         {
           "email":
-            "gkey-587@mail.ru"
+            "123@mail.ru"
           ,
           "username":
             "Gal"

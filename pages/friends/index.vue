@@ -15,8 +15,6 @@ import {useFetch} from "#app";
 import {definePageMeta} from "#imports";
 
 export default defineComponent({
-  layout: 'custom',
-
   async setup() {
     definePageMeta({
       middleware: ["auth"]
