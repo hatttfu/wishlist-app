@@ -1,11 +1,11 @@
 <template>
   <header class="header">
     <div class="header__container container">
-      <img src="../../assets/images/logo.svg" alt="Wishlist App" class="header__logo">
+      <NuxtLink to="/"><img src="../../assets/images/logo.svg" alt="Wishlist App" class="header__logo"></NuxtLink>
       <nav class="header__nav">
         <ul class="header__nav-list">
-          <li class="header__nav-item">Мои друзья</li>
-          <li class="header__nav-item">Выйти</li>
+          <li class="header__nav-item"><NuxtLink to="/friends">Мои друзья</NuxtLink></li>
+          <li class="header__nav-item"><NuxtLink to="/">Выйти</NuxtLink></li>
         </ul>
       </nav>
     </div>

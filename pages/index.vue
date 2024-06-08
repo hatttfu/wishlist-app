@@ -1,51 +1,24 @@
 <template>
  <div class="homepage">
-   <Header/>
-   <div class="homepage__container container">
-     <h1 class="homepage__title">
-       Мой вишлист
-     </h1>
-     <main class="main">
-       <ul class="homepage__wishes">
-         <li class="homepage__wish" v-for="item in wishes">
-           <Wish :wish="item" />
-         </li>
-       </ul>
-     </main>
-   </div>
+   <h1 class="homepage__title">
+      Wishlist App
+   </h1>
+   <main class="main">
+     <p class="paragraph">Здесь будет текст про это приложение, для чего оно, его описание и тд и тп</p>
+      <p class="paragraph">И снизу кнопка</p>
+     <button @click="$router.replace('login')" class="button button-primary">get started</button>
+   </main>
  </div>
 </template>
 
-<script lang="ts">
-  import { defineComponent } from 'vue'
-  import {useFetch} from "#app";
-  import {getWishes} from "~/server/wishes/get-wishes";
-  import {IWish} from "~/interface";
-  import Wish from "~/components/wish/wish.vue";
 
-  export default defineComponent({
-    components: {Wish},
-    layout: 'custom',
-    async setup() {
+<script setup>
+  import '~/assets/css/homepage.css'
+  import { definePageMeta } from '#imports';
+  // import { ref } from 'vue';
 
-    const { data: wishes } = await useFetch('/api/wishes');
-    const newWishes = ref<IWish[] | null>(null);
-    const isLoading = ref<Boolean>(false);
-
-    function getData() {
-      isLoading.value = true;
-      getWishes().then((data) => {
-        newWishes.value = data;
-        isLoading.value = false;
-      })
-    }
-
-    getData();
-
-    return { wishes, newWishes };
-  },
-})
-
+  definePageMeta({
+    layout: 'custom'
+  })
+  // const isLoading = ref<Boolean>(false);
 </script>
-
-<style src="./index.css" />
